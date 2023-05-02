@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <title>
+        Assignement
+    </title>
+    <style>
+        .myBox {
+            background-color: blueviolet;
+            width: 100px;
+            height: 100px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <div id="1" class="myBox" onclick="cli(1)"></div>
+            </td>
+            <td>
+                <div id="2" class="myBox" onclick="cli(2)"></div>
+            </td>
+            <td>
+                <div id="3" class="myBox" onclick="cli(3)"></div>
+            </td>
+            <td id="ref" rowspan="3" style="background-color:yellow;width: 50px;" onclick="refresh1()">
+                Refresh
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <div id="4" class="myBox" onclick="cli(4)"></div>
+            </td>
+            <td>
+                <div id="5" class="myBox" onclick="cli(5)"></div>
+            </td>
+            <td>
+                <div id="6" class="myBox" onclick="cli(6)"></div>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <div id="7" class="myBox" onclick="cli(7)"></div>
+            </td>
+            <td>
+                <div id="8" class="myBox" onclick="cli(8)"></div>
+            </td>
+            <td>
+                <div id="9" class="myBox" onclick="cli(9)"></div>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2" style="background-color: aquamarine; height: 50px;" id="count"></td>
+            <td colspan="2" style="background-color: aquamarine; height: 50px;" id="remark"></td>
+
+        </tr>
+    </table>
+    <script>
+
+
+        var random = Math.random();
+        var Rnum = Math.floor(random * 10);
+        var refCount = document.getElementById("count");
+        var refRemark = document.getElementById("remark");
+
+        var counter = 3;
+        console.log(Rnum);
+        refCount.innerText = counter;
+
+        function refresh1(){
+            counter=3;
+            refCount.innerText = counter;
+            for(i=1;i<10;i++){
+                var d = document.getElementById(i);
+                d.style.backgroundColor= "";
+            }
+            random = Math.random();
+            Rnum = Math.floor(random * 10);
+            console.log(Rnum);
+        }
+
+        function cli(c) {
+
+            if (counter > 0) {
+                if (Rnum == c) {
+                    var d = document.getElementById(c);
+                    d.style.backgroundColor = 'green';
+                    refRemark.innerText = "You Win ";
+                    
+                    
+                }
+                else {
+                    var d = document.getElementById(c);
+                    d.style.backgroundColor = 'red';
+                    
+                }
+                counter--;
+                refCount.innerText = counter;
+            }
+            else{
+                refRemark.innerText = "You Loose"
+            }
+
+
+        }
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
