@@ -1,0 +1,34 @@
+          +---------+             +-----------------+            +-------------+
+          |  Users  |             |    Products     |            |   Enquiry   |
+          +---------+             +-----------------+            +-------------+
+          |         |             |                 |            |             |
+          | uid(PK) |-------------| pid(PK)         |------------| eid(PK)     |
+          | fname   |             | pmodel_name     |            | enquiry_date|
+          | lname   |             | purchase_date   |            | completion_ |
+          | email   |             | pserial_no      |            | date        |
+          | mobile  |             | description     |            | enquiry_    |
+          | passwd  |             |                 |            | status      |
+          | city    |             |                 |            | uid (FK)    |
+          | area    |             |                 |            | pid (FK)    |
+          | pincode |             |                 |            |             |
+          | role    |             |                 |            |             |
+          +---------+             +-----------------+            +-------------+
+
+Based on the provided information, the relationships between the tables in the diagram can be determined as follows:
+
+1. Users table:
+   - One-to-Many relationship with Enquiry table: A user can have multiple enquiries, but each enquiry belongs to a single user.
+   - One-to-Many relationship with Products table: A user can purchase multiple products, but each product belongs to a single user.
+
+2. Products table:
+   - One-to-Many relationship with Enquiry table: A product can be enquired about multiple times, but each enquiry corresponds to a single product.
+   - Many-to-One relationship with Users table: Many products can be purchased by a single user, but each product is associated with a single user.
+
+3. Enquiry table:
+   - Many-to-One relationship with Users table: Many enquiries can be made by a single user, but each enquiry corresponds to a single user.
+   - Many-to-One relationship with Products table: Many enquiries can be made for a single product, but each enquiry corresponds to a single product.
+
+To summarize:
+- Users have a one-to-many relationship with Enquiries and Products.
+- Products have a one-to-many relationship with Enquiries.
+- Enquiries have a many-to-one relationship with Users and Products.
