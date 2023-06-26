@@ -1,0 +1,59 @@
+﻿create table users (uid int primary key auto_increment,fname varchar(20) not null,lname varchar(20) not null,email varchar(20) unique not null,mobile char(10) unique not null,passwd varchar(20) unique not null,city varchar(20) not null,area varchar(30) not null,pincode char(6) not null);
+
+create table product(pid int primary key auto_increment,pmodel_name varchar(20) not null,purchase_date date not null,pserial_no varchar(20) not null,description text not null);
+
+
+create table enquiry (eid int primary key auto_increment,enquiry_date date not null,completion_date date,enquiry_status varchar(10) not null,uid int not null,pid int not null,foreign key(uid) references users(uid),foreign key(pid) references product(pid));
+
+never use--
+alter table product drop column eid;
+
+INSERT INTO product (pmodel_name, purchase_date, pserial_no, description) VALUES     ('Laptop', '2022-05-15', 'ABC123456
+', 'High-performance'),     ('Smartphone', '2023-01-28', 'DEF987654', '5G capable, 128GB'),     ('Smart TV', '2023-06-10', 'GHI246810', '55" 4K Ultra HD'),     ('Camera', '2022-09-05', 'JKL369121', 'DSLR, 24MP'),     ('Gaming Console', '2023-03-19', 'MNO753951', '1TB storage, HDMI');
+
+alter table users add column role varchar(10);
+
+alter table users modify column role varchar(10) not null;
+
+INSERT INTO users (fname, lname, email, mobile, passwd, city, area, pincode, role)
+VALUES('John', 'Doe', 'johndoe@gmail.com', '1234567890', 'password123', 'New York','Manhattan', '12345', 'user'),
+    ('Jane', 'Smith', 'janesmith@gmail .com', '9876543210', 'pass123word', 'Los Angeles', 'Hollywood', '54321', 'user'),
+    ('Admin', 'Adminson', 'admin@gmail .com', '5555555555', 'adminpass', 'San Francisco', 'Downtown', '98765', 'admin');
+
+INSERT INTO users (fname, lname, email, mobile, passwd, city, area, pincode, role)
+VALUES
+    ('Sarah', 'Johnson', 'sarah@gmail .com', '5551234567', 'pass123', 'Chicago', 'Downtown', '60601', 'user'),
+    ('Michael', 'Williams', 'michael@gmail .com', '8889876543', 'password456', 'Houston', 'Midtown', '77002', 'user'),
+    ('Emma', 'Brown', 'emma@gmail .com', '9995551234', 'pass789', 'Boston', 'Back Bay', '02116', 'user'),
+    ('David', 'Davis', 'david@gmail .com', '7774445555', 'davidpass', 'Seattle', 'Belltown', '98101', 'admin');
+
+
+
+
+
+
+
+
+INSERT INTO enquiry (enquiry_date, completion_date, enquiry_status, uid, pid)
+VALUES
+  ('2023-06-21', NULL, 'Pending', 7, 2),
+  ('2023-06-22', '2023-06-24', 'Completed', 8, 1),
+  ('2023-06-24', NULL, 'Pending', 9, 4),
+  ('2023-06-26', NULL, 'Pending', 14, 3),
+  ('2023-06-27', NULL, 'Pending', 15, 5),
+  ('2023-06-27', NULL, 'Pending', 16, 1);
+
+INSERT INTO enquiry (enquiry_date, completion_date, enquiry_status, uid, pid)
+VALUES
+  ('2023-06-21', NULL, 'Pending', 7, 2),
+  ('2023-06-22', '2023-06-24', 'Completed', 8, 1),
+  ('2023-06-24', NULL, 'Pending', 9, 4),
+  ('2023-06-26', NULL, 'Pending', 14, 3),
+  ('2023-06-27', NULL, 'Pending', 15, 5),
+  ('2023-06-27', NULL, 'Pending', 16, 1);
+
+view enquiry-> user 
+select * from (select uid,eid,pmodel_name,description,pserial_no,enquiry_date,enquiry_status from enquiry inner join product on
+ enquiry.pid=product.pid) as abc where uid=9;
+
+
