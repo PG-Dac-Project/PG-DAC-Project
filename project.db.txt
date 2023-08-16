@@ -1,5 +1,19 @@
 ﻿create table users (uid int primary key auto_increment,fname varchar(20) not null,lname varchar(20) not null,email varchar(20) unique not null,mobile char(10) unique not null,passwd varchar(20) unique not null,city varchar(20) not null,area varchar(30) not null,pincode char(6) not null);
 
+MS SQL->
+CREATE TABLE users (
+    uid INT PRIMARY KEY IDENTITY(1,1),
+    fname VARCHAR(20) NOT NULL,
+    lname VARCHAR(20) NOT NULL,
+    email VARCHAR(20) UNIQUE NOT NULL,
+    mobile CHAR(10) UNIQUE NOT NULL,
+    passwd VARCHAR(20) UNIQUE NOT NULL,
+    city VARCHAR(20) NOT NULL,
+    area VARCHAR(30) NOT NULL,
+    pincode CHAR(6) NOT NULL
+);
+
+
 create table product(pid int primary key auto_increment,pmodel_name varchar(20) not null,purchase_date date not null,pserial_no varchar(20) not null,description text not null);
 
 
