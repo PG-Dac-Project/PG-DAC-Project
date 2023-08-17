@@ -10,28 +10,39 @@ CREATE TABLE users (
     passwd VARCHAR(20) UNIQUE NOT NULL,
     city VARCHAR(20) NOT NULL,
     area VARCHAR(30) NOT NULL,
-    pincode CHAR(6) NOT NULL
+    pincode CHAR(6) NOT NULL,
+    role VARCHAR(10) NOT NULL
 );
 
 
 create table product(pid int primary key auto_increment,pmodel_name varchar(20) not null,purchase_date date not null,pserial_no varchar(20) not null,description text not null);
+MS SQL->
+CREATE TABLE product (
+    pid INT PRIMARY KEY IDENTITY(1,1),
+    pmodel_name VARCHAR(20) NOT NULL,
+    purchase_date Date NOT NULL,
+    pserial_no VARCHAR(20) NOT NULL,
+    description Text  NOT NULL
+);
 
 
 create table enquiry (eid int primary key auto_increment,enquiry_date date not null,completion_date date,enquiry_status varchar(10) not null,uid int not null,pid int not null,foreign key(uid) references users(uid),foreign key(pid) references product(pid));
+MS SQL->
+CREATE TABLE enquiry (
+    eid INT PRIMARY KEY IDENTITY(1,1),
+    enquiry_date Date NOT NULL,
+    completion_date Date,
+    enquiry_status VARCHAR(10) NOT NULL,
+    uid int NOT NULL,
+    pid int NOT NULL,
+    CONSTRAINT fk_enq_user FOREIGN KEY (uid) REFERENCES users(uid) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_enq_product FOREIGN KEY (pid) REFERENCES product(uid) ON DELETE CASCADE ON UPDATE CASCADE,
+);
 
-never use--
-alter table product drop column eid;
-
-INSERT INTO product (pmodel_name, purchase_date, pserial_no, description) VALUES     ('Laptop', '2022-05-15', 'ABC123456
-', 'High-performance'),     ('Smartphone', '2023-01-28', 'DEF987654', '5G capable, 128GB'),     ('Smart TV', '2023-06-10', 'GHI246810', '55" 4K Ultra HD'),     ('Camera', '2022-09-05', 'JKL369121', 'DSLR, 24MP'),     ('Gaming Console', '2023-03-19', 'MNO753951', '1TB storage, HDMI');
-
-alter table users add column role varchar(10);
-
-alter table users modify column role varchar(10) not null;
 
 INSERT INTO users (fname, lname, email, mobile, passwd, city, area, pincode, role)
 VALUES('John', 'Doe', 'johndoe@gmail.com', '1234567890', 'password123', 'New York','Manhattan', '12345', 'user'),
-    ('Jane', 'Smith', 'janesmith@gmail .com', '9876543210', 'pass123word', 'Los Angeles', 'Hollywood', '54321', 'user'),
+    ('Jane', 'Smith', 'janesmith@gmail .com', '9876543210', 'pass123word', 'Los Angeles', 'Hollywood', '54321', 'user')
     ('Admin', 'Adminson', 'admin@gmail .com', '5555555555', 'adminpass', 'San Francisco', 'Downtown', '98765', 'admin');
 
 INSERT INTO users (fname, lname, email, mobile, passwd, city, area, pincode, role)
@@ -42,10 +53,8 @@ VALUES
     ('David', 'Davis', 'david@gmail .com', '7774445555', 'davidpass', 'Seattle', 'Belltown', '98101', 'admin');
 
 
-
-
-
-
+INSERT INTO product (pmodel_name, purchase_date, pserial_no, description) VALUES     ('Laptop', '2022-05-15', 'ABC123456
+', 'High-performance'),     ('Smartphone', '2023-01-28', 'DEF987654', '5G capable, 128GB'),     ('Smart TV', '2023-06-10', 'GHI246810', '55" 4K Ultra HD'),     ('Camera', '2022-09-05', 'JKL369121', 'DSLR, 24MP'),     ('Gaming Console', '2023-03-19', 'MNO753951', '1TB storage, HDMI');
 
 
 INSERT INTO enquiry (enquiry_date, completion_date, enquiry_status, uid, pid)
