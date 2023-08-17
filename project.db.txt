@@ -54,7 +54,7 @@ VALUES
 
 
 INSERT INTO product (pmodel_name, purchase_date, pserial_no) VALUES     ('Laptop', '2022-05-15', 'ABC123456
-'),     ('Smartphone', '2023-01-28', 'DEF987654'),     ('Smart TV', '2023-06-10', 'GHI246810'),     ('Camera', '2022-09-05'),     ('Gaming Console', '2023-03-19', 'MNO753951');
+'),     ('Smartphone', '2023-01-28', 'DEF987654'),     ('Smart TV', '2023-06-10', 'GHI246810'),     ('Camera', '2022-09-05','JKL256820'),     ('Gaming Console', '2023-03-19', 'MNO753951');
 
 
 INSERT INTO enquiry (enquiry_date, completion_date, enquiry_status, description, uid, pid)
