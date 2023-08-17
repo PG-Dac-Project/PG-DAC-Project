@@ -21,8 +21,7 @@ CREATE TABLE product (
     pid INT PRIMARY KEY IDENTITY(1,1),
     pmodel_name VARCHAR(20) NOT NULL,
     purchase_date Date NOT NULL,
-    pserial_no VARCHAR(20) NOT NULL,
-    description Text  NOT NULL
+    pserial_no VARCHAR(20) NOT NULL
 );
 
 
@@ -33,6 +32,7 @@ CREATE TABLE enquiry (
     enquiry_date Date NOT NULL,
     completion_date Date,
     enquiry_status VARCHAR(10) NOT NULL,
+    description Text  NOT NULL,
     uid int NOT NULL,
     pid int NOT NULL,
     CONSTRAINT fk_enq_user FOREIGN KEY (uid) REFERENCES users(uid) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -53,17 +53,17 @@ VALUES
     ('David', 'Davis', 'david@gmail .com', '7774445555', 'davidpass', 'Seattle', 'Belltown', '98101', 'admin');
 
 
-INSERT INTO product (pmodel_name, purchase_date, pserial_no, description) VALUES     ('Laptop', '2022-05-15', 'ABC123456
-', 'High-performance'),     ('Smartphone', '2023-01-28', 'DEF987654', '5G capable, 128GB'),     ('Smart TV', '2023-06-10', 'GHI246810', '55" 4K Ultra HD'),     ('Camera', '2022-09-05', 'JKL369121', 'DSLR, 24MP'),     ('Gaming Console', '2023-03-19', 'MNO753951', '1TB storage, HDMI');
+INSERT INTO product (pmodel_name, purchase_date, pserial_no) VALUES     ('Laptop', '2022-05-15', 'ABC123456
+'),     ('Smartphone', '2023-01-28', 'DEF987654'),     ('Smart TV', '2023-06-10', 'GHI246810'),     ('Camera', '2022-09-05'),     ('Gaming Console', '2023-03-19', 'MNO753951');
 
 
-INSERT INTO enquiry (enquiry_date, completion_date, enquiry_status, uid, pid)
+INSERT INTO enquiry (enquiry_date, completion_date, enquiry_status, description, uid, pid)
 VALUES
-  ('2023-06-21', NULL, 'Pending', 7, 2),
-  ('2023-06-22', '2023-06-24', 'Completed', 8, 1),
-  ('2023-06-24', NULL, 'Pending', 9, 4),
-  ('2023-06-26', NULL, 'Pending', 14, 3),
-  ('2023-06-27', NULL, 'Pending', 15, 5),
+  ('2023-06-21', NULL, 'Pending', 'High-performance', 7, 2),
+  ('2023-06-22', '2023-06-24', 'Completed', '5G capable, 128GB', 8, 1),
+  ('2023-06-24', NULL, 'Pending', '55" 4K Ultra HD', 9, 4),
+  ('2023-06-26', NULL, 'Pending', 'JKL369121', 'DSLR, 24MP', 14, 3),
+  ('2023-06-27', NULL, 'Pending', '1TB storage, HDMI', 15, 5),
   ('2023-06-27', NULL, 'Pending', 16, 1);
 
 INSERT INTO enquiry (enquiry_date, completion_date, enquiry_status, uid, pid)
