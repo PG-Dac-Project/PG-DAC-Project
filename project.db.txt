@@ -62,18 +62,8 @@ VALUES
   ('2023-06-21', NULL, 'Pending', 'High-performance', 7, 2),
   ('2023-06-22', '2023-06-24', 'Completed', '5G capable, 128GB', 8, 1),
   ('2023-06-24', NULL, 'Pending', '55" 4K Ultra HD', 9, 4),
-  ('2023-06-26', NULL, 'Pending', 'JKL369121', 'DSLR, 24MP', 14, 3),
-  ('2023-06-27', NULL, 'Pending', '1TB storage, HDMI', 15, 5),
-  ('2023-06-27', NULL, 'Pending', 16, 1);
-
-INSERT INTO enquiry (enquiry_date, completion_date, enquiry_status, uid, pid)
-VALUES
-  ('2023-06-21', NULL, 'Pending', 7, 2),
-  ('2023-06-22', '2023-06-24', 'Completed', 8, 1),
-  ('2023-06-24', NULL, 'Pending', 9, 4),
-  ('2023-06-26', NULL, 'Pending', 14, 3),
-  ('2023-06-27', NULL, 'Pending', 15, 5),
-  ('2023-06-27', NULL, 'Pending', 16, 1);
+  ('2023-06-26', NULL, 'Pending', 'DSLR, 24MP', 14, 3),
+  ('2023-06-27', NULL, 'Pending', '1TB storage, HDMI', 15, 5);
 
 view enquiry-> user 
 select * from (select uid,eid,pmodel_name,description,pserial_no,enquiry_date,enquiry_status from enquiry inner join product on
