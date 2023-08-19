@@ -68,5 +68,54 @@ VALUES
 view enquiry-> user 
 select * from (select uid,eid,pmodel_name,description,pserial_no,enquiry_date,enquiry_status from enquiry inner join product on
  enquiry.pid=product.pid) as abc where uid=9;
+-----------------------------------------------------------------------------------------------------------------------------------------------
+UPDATED DATABASE QUERY
 
+CREATE TABLE [dbo].[product] (
+    [pid]           INT          IDENTITY (1, 1) NOT NULL,
+    [pmodel_name]   VARCHAR (20) NOT NULL,
+    [purchase_date] DATETIME     NOT NULL,
+    [pserial_no]    VARCHAR (20) NOT NULL,
+    PRIMARY KEY CLUSTERED ([pid] ASC)
+);
+
+SET IDENTITY_INSERT [dbo].[product] ON
+INSERT INTO [dbo].[product] ([pid], [pmodel_name], [purchase_date], [pserial_no]) VALUES (2, N'phone', N'2023-01-28 00:00:00', N'DEF987654')
+INSERT INTO [dbo].[product] ([pid], [pmodel_name], [purchase_date], [pserial_no]) VALUES (3, N'TV', N'2023-06-10 01:02:00', N'GHI246810')
+INSERT INTO [dbo].[product] ([pid], [pmodel_name], [purchase_date], [pserial_no]) VALUES (4, N'Camera', N'2022-09-05 00:00:00', N'JKL369121')
+INSERT INTO [dbo].[product] ([pid], [pmodel_name], [purchase_date], [pserial_no]) VALUES (5, N'Gaming Console', N'2023-03-19 00:00:00', N'MNO753951')
+INSERT INTO [dbo].[product] ([pid], [pmodel_name], [purchase_date], [pserial_no]) VALUES (6, N'Laptop', N'2022-05-15 00:00:00', N'ABC123457
+')
+INSERT INTO [dbo].[product] ([pid], [pmodel_name], [purchase_date], [pserial_no]) VALUES (12, N'Laptop', N'2021-05-15 00:00:00', N'AZC123457
+')
+INSERT INTO [dbo].[product] ([pid], [pmodel_name], [purchase_date], [pserial_no]) VALUES (13, N'Printer', N'2020-06-16 00:00:00', N'AZZ1234321
+')
+INSERT INTO [dbo].[product] ([pid], [pmodel_name], [purchase_date], [pserial_no]) VALUES (14, N'printer', N'2023-08-08 00:00:00', N'ABCD-2345')
+INSERT INTO [dbo].[product] ([pid], [pmodel_name], [purchase_date], [pserial_no]) VALUES (15, N'printer', N'2023-08-10 00:00:00', N'AXCV-37468')
+SET IDENTITY_INSERT [dbo].[product] OFF
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE [dbo].[enquiry] (
+    [eid]             INT          IDENTITY (1, 1) NOT NULL,
+    [enquiry_date]    DATETIME     NOT NULL,
+    [completion_date] DATETIME     NULL,
+    [enquiry_status]  VARCHAR (20) NOT NULL,
+    [uid]             INT          NOT NULL,
+    [pid]             INT          NOT NULL,
+    [description]     TEXT         NOT NULL,
+    PRIMARY KEY CLUSTERED ([eid] ASC),
+    CONSTRAINT [fk_enq_user] FOREIGN KEY ([uid]) REFERENCES [dbo].[users] ([uid]) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT [fk_enq_product] FOREIGN KEY ([pid]) REFERENCES [dbo].[product] ([pid]) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+SET IDENTITY_INSERT [dbo].[enquiry] ON
+INSERT INTO [dbo].[enquiry] ([eid], [enquiry_date], [completion_date], [enquiry_status], [uid], [pid], [description]) VALUES (1, N'2023-06-21 00:00:00', NULL, N'Pending', 6, 2, N'High-performance')
+INSERT INTO [dbo].[enquiry] ([eid], [enquiry_date], [completion_date], [enquiry_status], [uid], [pid], [description]) VALUES (3, N'2023-06-24 00:00:00', NULL, N'Pending', 4, 4, N'55" 4K Ultra HD')
+INSERT INTO [dbo].[enquiry] ([eid], [enquiry_date], [completion_date], [enquiry_status], [uid], [pid], [description]) VALUES (4, N'2023-06-26 00:00:00', NULL, N'Pending', 3, 3, N'DSLR, 24MP')
+INSERT INTO [dbo].[enquiry] ([eid], [enquiry_date], [completion_date], [enquiry_status], [uid], [pid], [description]) VALUES (5, N'2023-06-27 00:00:00', NULL, N'Pending', 1, 5, N'1TB storage, HDMI')
+INSERT INTO [dbo].[enquiry] ([eid], [enquiry_date], [completion_date], [enquiry_status], [uid], [pid], [description]) VALUES (6, N'2023-08-18 16:30:26', NULL, N'Pending', 3, 2, N'sfjlgsdhkglkshg')
+INSERT INTO [dbo].[enquiry] ([eid], [enquiry_date], [completion_date], [enquiry_status], [uid], [pid], [description]) VALUES (7, N'2023-08-18 16:56:02', NULL, N'Pending', 3, 2, N'Hardware is not working properly')
+INSERT INTO [dbo].[enquiry] ([eid], [enquiry_date], [completion_date], [enquiry_status], [uid], [pid], [description]) VALUES (8, N'2023-08-18 17:03:48', NULL, N'Pending', 3, 4, N'some thing wrong')
+INSERT INTO [dbo].[enquiry] ([eid], [enquiry_date], [completion_date], [enquiry_status], [uid], [pid], [description]) VALUES (9, N'2023-08-18 17:07:10', NULL, N'Pending', 3, 4, N'another error')
+INSERT INTO [dbo].[enquiry] ([eid], [enquiry_date], [completion_date], [enquiry_status], [uid], [pid], [description]) VALUES (10, N'2023-08-18 17:22:30', NULL, N'Pending', 3, 2, N'error')
+SET IDENTITY_INSERT [dbo].[enquiry] OFF
 
