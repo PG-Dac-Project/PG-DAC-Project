@@ -122,7 +122,7 @@ SET IDENTITY_INSERT [dbo].[enquiry] OFF
 technical person
 CREATE TABLE [dbo].[technical]
 (
-	[tid] INT IDENTITY (1, 1) NOT NULL,
+	[tid] INT PRIMARY KEY IDENTITY (1, 1) NOT NULL,
 	[eid] INT NOT NULL,
 	[uid] INT NOT NULL,
 	
