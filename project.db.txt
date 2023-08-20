@@ -127,5 +127,5 @@ CREATE TABLE [dbo].[technical]
 	[uid] INT NOT NULL,
 	
     CONSTRAINT [fk_tech_enq] FOREIGN KEY ([eid]) REFERENCES [dbo].[enquiry] ([eid]) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT [fk_tech_uid] FOREIGN KEY ([uid]) REFERENCES [dbo].[users] ([uid]) ON DELETE CASCADE ON UPDATE CASCADE
+   
 )
