@@ -13,7 +13,23 @@ CREATE TABLE users (
     pincode CHAR(6) NOT NULL,
     role VARCHAR(10) NOT NULL
 );
+----------------------------------------------------------------------------------
 
+SET IDENTITY_INSERT [dbo].[users] ON
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (1, N'John', N'Doe', N'johndoe@gmail.com', N'1234567890', N'password123', N'New York', N'Manhattan', N'12345 ', N'Customer')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (2, N'Jane', N'Smith', N'janesmith@gmail .com', N'9876543210', N'pass123word', N'Los Angeles', N'Hollywood', N'54321 ', N'Customer')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (3, N'Admin', N'Adminson', N'admin@gmail .com', N'5555555555', N'adminpass', N'San Francisco', N'Downtown', N'98765 ', N'Agent')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (5, N'Sarah', N'Johnson', N'sarah@gmail .com', N'5551234567', N'pass123', N'Chicago', N'Downtown', N'60601 ', N'Customer')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (6, N'Michael', N'Williams', N'michael@gmail .com', N'8889876543', N'password456', N'Houston', N'Midtown', N'77002 ', N'Customer')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (7, N'Emma', N'Brown', N'emma@gmail .com', N'9995551234', N'pass789', N'Boston', N'Back Bay', N'02116 ', N'Customer')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (8, N'Nishant', N'Mukta', N'nishantmukta24@gmail.com', N'7774445555', N'333', N'Seattle', N'Belltown', N'98101 ', N'Agent')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (12, N'karan', N'kale', N'k@gmail.com', N'7889456523', N'789', N'pune', N'pune', N'413512', N'Technical')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (13, N'abhay', N'krishana', N'abhaykrishn1@gmail.com', N'8765204921', N'456', N'Gorakhpur', N'up', N'273014', N'Technical')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (14, N'vikas', N'sontakke', N'sontakkevikas1802@gmail.com', N'7788224432', N'444', N'latur', N'shivaji nagar', N'413512', N'Technical')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (15, N'Ritesh', N'Dawane', N'rdawane07@gmail.com', N'8956646440', N'563', N'LATUR', N'mantri nagar', N'413512', N'Technical')
+INSERT INTO [dbo].[users] ([uid], [fname], [lname], [email], [mobile], [passwd], [city], [area], [pincode], [role]) VALUES (16, N'', N'', N'', N'          ', N'', N'', N'', N'      ', N'')
+SET IDENTITY_INSERT [dbo].[users] OFF
+----------------------------------------------------------------------------------------------------------
 
 create table product(pid int primary key auto_increment,pmodel_name varchar(20) not null,purchase_date date not null,pserial_no varchar(20) not null,description text not null);
 MS SQL->
