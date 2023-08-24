@@ -145,3 +145,26 @@ CREATE TABLE [dbo].[technical]
     CONSTRAINT [fk_tech_enq] FOREIGN KEY ([eid]) REFERENCES [dbo].[enquiry] ([eid]) ON DELETE CASCADE ON UPDATE CASCADE,
    
 )
+
+SET IDENTITY_INSERT [dbo].[technical] ON
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1, 1, 12)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (2, 4, 12)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (3, 5, 12)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (4, 1, 12)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (5, 6, 13)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (6, 4, 13)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (7, 4, 14)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (8, 11, 15)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (9, 7, 14)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1009, 8, 15)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1010, 5, 0)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1011, 5, 0)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1012, 5, 0)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1013, 5, 0)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1014, 5, 13)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1015, 5, 13)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1016, 5, 14)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1017, 5, 12)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1018, 11, 14)
+INSERT INTO [dbo].[technical] ([tid], [eid], [uid]) VALUES (1019, 1, 13)
+SET IDENTITY_INSERT [dbo].[technical] OFF
